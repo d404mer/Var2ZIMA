@@ -31,12 +31,13 @@
                 />
 
         <DataGrid ItemsSource="{Binding Drivers}" 
-                  AutoGenerateColumns="True"
-                  Grid.Row="1"
-                  SelectedItem="{Binding SelectedDriver, Mode=TwoWay}"
-                  />
-        
-        
+          AutoGenerateColumns="True"
+          Grid.Row="1"
+          SelectedItem="{Binding SelectedDriver, Mode=TwoWay}"
+          MouseDoubleClick="DataGrid_MouseDoubleClick"
+          />
+
+
         <StackPanel  Grid.Row="2" Orientation="Horizontal">
             <Button x:Name="Add" 
                 Content="Добавить"

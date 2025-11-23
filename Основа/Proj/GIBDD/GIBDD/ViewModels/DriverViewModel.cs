@@ -98,10 +98,21 @@ namespace GIBDD.ViewModels
 
         public void OpenDriverProfile()
         {
-            if (SelectedDriver != null)
+            if (SelectedDriver == null)
             {
-                var profileWindow = new ViewDriverWindow(SelectedDriver);
-                profileWindow.ShowDialog();
+                MessageBox.Show("Выберите водителя!");
+                return;
+            }
+
+            var viewWindow = new ViewDriverWindow(SelectedDriver);
+
+            if (viewWindow.ShowDialog() == true)
+            {
+                // Сохраняем изменения в БД
+                var updatedDriver = viewWindow.EditedDriver;
+                _driverService.Update(updatedDriver); // или UpdateByGuid если есть такой метод
+                LoadDrivers(); // Обновляем список
+                MessageBox.Show("Данные водителя обновлены!");
             }
         }
 

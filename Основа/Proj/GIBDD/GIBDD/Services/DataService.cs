@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using GIBDD.Models;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GIBDD.Services
 {
@@ -15,20 +16,43 @@ namespace GIBDD.Services
 
         public void Add(T item)
         {
-            _context.Set<T>().Add(item);
-            _context.SaveChanges();
+            try
+            {
+                _context.Set<T>().Add(item);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при добавлении записи: {ex.Message}");
+            }
         }
 
         public void Update(T item)
         {
-            _context.Set<T>().Update(item);
-            _context.SaveChanges();
+            try
+            {
+                // Отсоединяем все сущности и обновляем
+                _context.ChangeTracker.Clear();
+                _context.Set<T>().Update(item);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при обновлении: {ex.Message}");
+            }
         }
 
         public void Delete(T item)
         {
-            _context.Set<T>().Remove(item);
-            _context.SaveChanges();
+            try
+            {
+                _context.Set<T>().Remove(item);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при удалении: {ex.Message}. \n Каскадное удаление записей не предусмотрено, проверьте наличие связанных данных");
+            }
         }
 
         // Универсальный поиск по строке
