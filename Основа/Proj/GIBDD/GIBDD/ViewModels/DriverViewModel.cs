@@ -4,8 +4,6 @@ using GIBDD.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace GIBDD.ViewModels
@@ -13,88 +11,158 @@ namespace GIBDD.ViewModels
     public class DriverViewModel : BaseViewModel
     {
         private DataService<Driver> _driverService = new DataService<Driver>();
-
-        private List<Driver> _drivers;
-
+        private List<Driver> _allDrivers; // Все водители
+        private List<Driver> _drivers;    // Отфильтрованный список
         private Driver _selectedDriver;
-
         private string _searchText;
+        private string _selectedCategory;
 
-        // обязательный минимум команд (CRUD-операции для конкретной модели)
+        // Команды
         public RelayCommand LoadDriversCommand { get; }
         public RelayCommand AddDriversCommand { get; }
         public RelayCommand DeleteDriversCommand { get; }
         public RelayCommand SearchDriversCommand { get; }
-
         public RelayCommand OpenProfileCommand { get; }
+        public RelayCommand FilterByCategoryCommand { get; }
 
-
-
-
-
-        // коллекция для привязки к DataGrid
+        // Коллекция для привязки к DataGrid
         public List<Driver> Drivers
         {
             get => _drivers;
             set { _drivers = value; OnPropertyChanged(); }
         }
 
-        // выбранный элемент
+        // Выбранный элемент
         public Driver SelectedDriver
         {
             get => _selectedDriver;
-            set
-            {
-                _selectedDriver = value; OnPropertyChanged();
-            }
+            set { _selectedDriver = value; OnPropertyChanged(); }
         }
 
-        // текст для поиска
+        // Текст для поиска
         public string SearchText
         {
             get => _searchText;
             set { _searchText = value; OnPropertyChanged(); }
         }
 
+        // Выбранная категория для фильтрации
+        public string SelectedCategory
+        {
+            get => _selectedCategory;
+            set
+            {
+                _selectedCategory = value;
+                OnPropertyChanged();
+                FilterByCategory(); // Автоматически фильтруем при изменении
+            }
+        }
+
+        // Список категорий для ComboBox
+        public List<string> Categories
+        {
+            get
+            {
+                var categories = new List<string> { "Все категории" };
+                if (_allDrivers != null)
+                {
+                    categories.AddRange(_allDrivers
+                        .Select(d => d.Categories)
+                        .Distinct()
+                        .Where(c => !string.IsNullOrEmpty(c)));
+                }
+                return categories;
+            }
+        }
 
         public DriverViewModel()
         {
             LoadDriversCommand = new RelayCommand(LoadDrivers);
             AddDriversCommand = new RelayCommand(AddDriver);
             DeleteDriversCommand = new RelayCommand(DeleteDriver);
-            //SearchDriversCommand = new RelayCommand(SearchDrivers);
-            OpenProfileCommand = new RelayCommand(OpenDriverProfile); // если нужна отдельная команда
+            SearchDriversCommand = new RelayCommand(SearchDrivers);
+            OpenProfileCommand = new RelayCommand(OpenDriverProfile);
+            FilterByCategoryCommand = new RelayCommand(FilterByCategory);
 
-            LoadDrivers(); // загружаем данные сразу при создании
+            LoadDrivers();
         }
 
-        public void LoadDrivers() => Drivers = _driverService.GetAll();
+        public void LoadDrivers()
+        {
+            _allDrivers = _driverService.GetAll();
+            Drivers = _allDrivers;
+            OnPropertyChanged(nameof(Categories)); // Обновляем список категорий
+        }
+
+        // Фильтрация по категории
+        public void FilterByCategory()
+        {
+            if (_allDrivers == null) return;
+
+            if (string.IsNullOrEmpty(SelectedCategory) || SelectedCategory == "Все категории")
+            {
+                Drivers = _allDrivers;
+            }
+            else
+            {
+                Drivers = _allDrivers
+                    .Where(d => d.Categories.Contains(SelectedCategory))
+                    .ToList();
+            }
+        }
+
+        // Поиск по тексту
+        public void SearchDrivers()
+        {
+            if (_allDrivers == null) return;
+
+            if (string.IsNullOrEmpty(SearchText))
+            {
+                FilterByCategory(); // Возвращаемся к текущей фильтрации по категории
+            }
+            else
+            {
+                Drivers = _allDrivers
+                    .Where(d => d.Surname.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                               d.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                               d.Phone.Contains(SearchText) ||
+                               d.LicenceNumber.Contains(SearchText))
+                    .ToList();
+            }
+        }
 
         public void AddDriver()
         {
             var addDriver = new AddDriversWindow();
-
             if (addDriver.ShowDialog() == true)
             {
-                // Берем созданного водителя из окна
                 var newDriver = addDriver.NewDriver;
-
-                // Сохраняем в БД
                 _driverService.Add(newDriver);
-                LoadDrivers(); // Обновляем список
-
+                LoadDrivers();
                 MessageBox.Show("Водитель успешно добавлен!");
             }
         }
 
         public void DeleteDriver()
         {
+            if (SelectedDriver == null)
+            {
+                MessageBox.Show("Выберите водителя для удаления!");
+                return;
+            }
 
-            _driverService.Delete(SelectedDriver);
-            LoadDrivers();
+            var result = MessageBox.Show(
+                $"Удалить водителя {SelectedDriver.Surname} {SelectedDriver.Name}?",
+                "Подтверждение",
+                MessageBoxButton.YesNo);
 
+            if (result == MessageBoxResult.Yes)
+            {
+                _driverService.Delete(SelectedDriver);
+                LoadDrivers();
+                MessageBox.Show("Водитель удален!");
+            }
         }
-
 
         public void OpenDriverProfile()
         {
@@ -105,24 +173,13 @@ namespace GIBDD.ViewModels
             }
 
             var viewWindow = new ViewDriverWindow(SelectedDriver);
-
             if (viewWindow.ShowDialog() == true)
             {
-                // Сохраняем изменения в БД
                 var updatedDriver = viewWindow.EditedDriver;
-                _driverService.Update(updatedDriver); // или UpdateByGuid если есть такой метод
-                LoadDrivers(); // Обновляем список
-                MessageBox.Show("Данные водителя обновлены!");
+                _driverService.Update(updatedDriver);
+                LoadDrivers();
+                MessageBox.Show("Данные обновлены!");
             }
         }
-
-
-        //public void SearchDrivers()
-        //{
-        //    if (string.IsNullOrEmpty(SearchText))
-        //        LoadDrivers();
-        //    else
-        //        Drivers = _driverService.Search(SearchText);
-        //}
     }
 }

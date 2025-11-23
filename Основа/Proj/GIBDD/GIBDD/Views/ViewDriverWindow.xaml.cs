@@ -53,20 +53,7 @@ namespace GIBDD.Views
                 DriverPhoto.Source = new BitmapImage(new Uri(photoPath));
             }
         }
-
-        private void BrowsePhoto_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.Filter = "Image files (*.jpg, *.png)|*.jpg;*.png";
-
-            if (dialog.ShowDialog() == true)
-            {
-                EditedDriver.Photo = dialog.FileName;
-                LoadPhoto();
-            }
-        }
-
-       
+ 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
@@ -85,6 +72,18 @@ namespace GIBDD.Views
 
             this.DialogResult = true;
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.Filter = "Image files (*.jpg, *.png)|*.jpg;*.png";
+
+            if (dialog.ShowDialog() == true)
+            {
+                EditedDriver.Photo = dialog.FileName;
+                LoadPhoto();
+            }
         }
     }
 }

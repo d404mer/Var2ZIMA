@@ -18,8 +18,8 @@
                        Stretch="Uniform"/>
             </Border>
             <Button Content="Выбрать фото" Width="100" Margin="0,5,0,0" 
-                    HorizontalAlignment="Center"/>
-            <TextBlock Text="Фотография" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                    HorizontalAlignment="Center" Click="Button_Click_1"/>
+
 
             <StackPanel Margin="0,20,0,0">
                 <Button Content="Сохранить" Width="80" Margin="0,5,0,0" 
