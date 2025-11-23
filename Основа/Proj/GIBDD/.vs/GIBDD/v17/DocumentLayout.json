@@ -1,0 +1,279 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\views\\viewdriverwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\views\\viewdriverwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\views\\viewdriverwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\views\\viewdriverwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\views\\driverswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\views\\driverswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\viewmodels\\driverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\viewmodels\\driverviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\views\\driverswindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\views\\driverswindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\views\\adddriverswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\views\\adddriverswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\models\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\models\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\views\\adddriverswindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\views\\adddriverswindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|d:\\vsc\\uchebnaya2024zima\\var2zima\\\u043E\u0441\u043D\u043E\u0432\u0430\\proj\\gibdd\\gibdd\\models\\gibdddbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DDB736F-D0FB-401B-B866-4E44A25E6642}|GIBDD\\GIBDD.csproj|solutionrelative:gibdd\\models\\gibdddbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 511,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ViewDriverWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\ViewDriverWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GIBDD\\Views\\ViewDriverWindow.xaml.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\ViewDriverWindow.xaml.cs",
+              "RelativeToolTip": "GIBDD\\Views\\ViewDriverWindow.xaml.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowDIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T12:51:18.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ViewDriverWindow.xaml",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\ViewDriverWindow.xaml",
+              "RelativeDocumentMoniker": "GIBDD\\Views\\ViewDriverWindow.xaml",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\ViewDriverWindow.xaml",
+              "RelativeToolTip": "GIBDD\\Views\\ViewDriverWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-23T12:40:36.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddDriversWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\AddDriversWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GIBDD\\Views\\AddDriversWindow.xaml.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\AddDriversWindow.xaml.cs",
+              "RelativeToolTip": "GIBDD\\Views\\AddDriversWindow.xaml.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAwwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T11:35:46.63Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddDriversWindow.xaml",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\AddDriversWindow.xaml",
+              "RelativeDocumentMoniker": "GIBDD\\Views\\AddDriversWindow.xaml",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\AddDriversWindow.xaml",
+              "RelativeToolTip": "GIBDD\\Views\\AddDriversWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-23T11:28:24.805Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DriverViewModel.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\ViewModels\\DriverViewModel.cs",
+              "RelativeDocumentMoniker": "GIBDD\\ViewModels\\DriverViewModel.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\ViewModels\\DriverViewModel.cs",
+              "RelativeToolTip": "GIBDD\\ViewModels\\DriverViewModel.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAiwLgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T11:13:42.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DriversWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\DriversWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GIBDD\\Views\\DriversWindow.xaml.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\DriversWindow.xaml.cs",
+              "RelativeToolTip": "GIBDD\\Views\\DriversWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T20:03:39.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DriversWindow.xaml",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\DriversWindow.xaml",
+              "RelativeDocumentMoniker": "GIBDD\\Views\\DriversWindow.xaml",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Views\\DriversWindow.xaml",
+              "RelativeToolTip": "GIBDD\\Views\\DriversWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-22T20:01:22.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\App.xaml",
+              "RelativeDocumentMoniker": "GIBDD\\App.xaml",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\App.xaml",
+              "RelativeToolTip": "GIBDD\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-22T19:50:28.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\ViewModels\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "GIBDD\\ViewModels\\BaseViewModel.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\ViewModels\\BaseViewModel.cs",
+              "RelativeToolTip": "GIBDD\\ViewModels\\BaseViewModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T19:37:00.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "GIBDD\\Services\\AuthService.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Services\\AuthService.cs",
+              "RelativeToolTip": "GIBDD\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T19:32:38.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "GibddDbContext.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Models\\GibddDbContext.cs",
+              "RelativeDocumentMoniker": "GIBDD\\Models\\GibddDbContext.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Models\\GibddDbContext.cs",
+              "RelativeToolTip": "GIBDD\\Models\\GibddDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T18:55:12.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DataService.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Services\\DataService.cs",
+              "RelativeDocumentMoniker": "GIBDD\\Services\\DataService.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Services\\DataService.cs",
+              "RelativeToolTip": "GIBDD\\Services\\DataService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwCkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T19:31:08.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Driver.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Models\\Driver.cs",
+              "RelativeDocumentMoniker": "GIBDD\\Models\\Driver.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\Models\\Driver.cs",
+              "RelativeToolTip": "GIBDD\\Models\\Driver.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAkwDMAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T19:19:33.26Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "GIBDD\\MainWindow.xaml",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\MainWindow.xaml",
+              "RelativeToolTip": "GIBDD\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-22T18:04:28.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "GIBDD\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\\u041E\u0441\u043D\u043E\u0432\u0430\\Proj\\GIBDD\\GIBDD\\MainWindow.xaml.cs",
+              "RelativeToolTip": "GIBDD\\MainWindow.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAxwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T18:04:25.831Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 245,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
