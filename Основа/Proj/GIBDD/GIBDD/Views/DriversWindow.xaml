@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GIBDD.Views"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="DriversWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,6 +14,12 @@
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <ComboBox Width="100" Height="20" Margin="10,0,10,0"/>
+            <TextBox Width="100" Height="20" Margin="0,0,10,0"/>
+        </StackPanel>
+        
+        
         <Button x:Name="Back" 
                 Content="Назад" 
                 Width="50" 
@@ -33,14 +40,14 @@
                 Width="70" 
                 HorizontalAlignment="Left"
                 Height="20"
-                Margin="10,0,0,0"
+                Margin="10,0,0,0" Click="Add_Click"
             />
                         <Button x:Name="Delete" 
                 Content="Удалить"
                 Width="70" 
                 HorizontalAlignment="Left"
                 Height="20"
-                Margin="10,0,0,0"
+                Margin="10,0,0,0" Click="Delete_Click"
             />
         </StackPanel>
         

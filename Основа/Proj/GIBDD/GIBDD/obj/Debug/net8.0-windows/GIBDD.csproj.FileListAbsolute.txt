@@ -147,3 +147,5 @@ D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0
 D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\MainWindow.baml
 D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\DriversWindow.g.cs
 D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\DriversWindow.baml
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\AddDriversWindow.g.cs
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\AddDriversWindow.baml

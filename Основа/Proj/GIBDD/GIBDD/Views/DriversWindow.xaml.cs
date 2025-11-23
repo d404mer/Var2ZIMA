@@ -1,20 +1,5 @@
-﻿using GIBDD.Models;
-using GIBDD.Services;
-using GIBDD.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GIBDD.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using static GIBDD.ViewModels.BaseViewModel;
 
 namespace GIBDD.Views
 {
@@ -23,12 +8,14 @@ namespace GIBDD.Views
     /// </summary>
     public partial class DriversWindow : Window
     {
+        private DriverViewModel _viewModel;
         public DriversWindow()
         {
             InitializeComponent();
 
-            this.DataContext = new DriverViewModel();
+            _viewModel = new DriverViewModel();
 
+            this.DataContext = new DriverViewModel();
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -37,31 +24,17 @@ namespace GIBDD.Views
             mainWindow.Show();
             this.Close();
         }
-    }
 
-    public class DriverViewModel : BaseViewModel
-    {
-        private DataService<Driver> _driverService = new DataService<Driver>();
-        private List<Driver> _drivers;
-
-        // Коллекция для привязки к DataGrid
-        public List<Driver> Drivers
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            get => _drivers;
-            set { _drivers = value; OnPropertyChanged(); }
+
         }
 
-        public RelayCommand LoadDriversCommand { get; }
-
-        public DriverViewModel()
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            LoadDriversCommand = new RelayCommand(LoadDrivers);
-            LoadDrivers(); // Загружаем сразу при создании
-        }
-
-        private void LoadDrivers()
-        {
-            Drivers = _driverService.GetAll();
+            _viewModel.AddDriver();
+            _viewModel.LoadDrivers();
         }
     }
+
 }
