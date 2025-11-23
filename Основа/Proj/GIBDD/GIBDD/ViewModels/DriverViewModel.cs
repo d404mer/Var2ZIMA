@@ -26,6 +26,8 @@ namespace GIBDD.ViewModels
         public RelayCommand DeleteDriversCommand { get; }
         public RelayCommand SearchDriversCommand { get; }
 
+        public RelayCommand OpenProfileCommand { get; }
+
 
 
 
@@ -60,8 +62,8 @@ namespace GIBDD.ViewModels
             LoadDriversCommand = new RelayCommand(LoadDrivers);
             AddDriversCommand = new RelayCommand(AddDriver);
             DeleteDriversCommand = new RelayCommand(DeleteDriver);
-            SearchDriversCommand = new RelayCommand(SearchDrivers);
-
+            //SearchDriversCommand = new RelayCommand(SearchDrivers);
+            OpenProfileCommand = new RelayCommand(OpenDriverProfile); // если нужна отдельная команда
 
             LoadDrivers(); // загружаем данные сразу при создании
         }
@@ -93,12 +95,23 @@ namespace GIBDD.ViewModels
 
         }
 
-        public void SearchDrivers()
+
+        public void OpenDriverProfile()
         {
-            if (string.IsNullOrEmpty(SearchText))
-                LoadDrivers();
-            else
-                Drivers = _driverService.Search(SearchText);
+            if (SelectedDriver != null)
+            {
+                var profileWindow = new ViewDriverWindow(SelectedDriver);
+                profileWindow.ShowDialog();
+            }
         }
+
+
+        //public void SearchDrivers()
+        //{
+        //    if (string.IsNullOrEmpty(SearchText))
+        //        LoadDrivers();
+        //    else
+        //        Drivers = _driverService.Search(SearchText);
+        //}
     }
 }

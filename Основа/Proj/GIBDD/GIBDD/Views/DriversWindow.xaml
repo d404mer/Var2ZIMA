@@ -14,10 +14,12 @@
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
 
+        
+        <!--
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <ComboBox Width="100" Height="20" Margin="10,0,10,0"/>
             <TextBox Width="100" Height="20" Margin="0,0,10,0"/>
-        </StackPanel>
+        </StackPanel> -->
         
         
         <Button x:Name="Back" 
@@ -31,6 +33,7 @@
         <DataGrid ItemsSource="{Binding Drivers}" 
                   AutoGenerateColumns="True"
                   Grid.Row="1"
+                  SelectedItem="{Binding SelectedDriver, Mode=TwoWay}"
                   />
         
         
