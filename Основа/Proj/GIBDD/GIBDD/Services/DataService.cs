@@ -31,10 +31,12 @@ namespace GIBDD.Services
         {
             try
             {
-                // Отсоединяем все сущности и обновляем
-                _context.ChangeTracker.Clear();
-                _context.Set<T>().Update(item);
-                _context.SaveChanges();
+                // Создаем новый контекст чтобы избежать конфликта отслеживания
+                using (var newContext = new GibddDbContext())
+                {
+                    newContext.Set<T>().Update(item);
+                    newContext.SaveChanges();
+                }
             }
             catch (Exception ex)
             {

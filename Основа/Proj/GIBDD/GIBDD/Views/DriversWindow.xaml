@@ -21,10 +21,10 @@
                       DisplayMemberPath="."/>
 
             <TextBox x:Name="FindTextBox" 
-                     Width="120" 
-                     Height="25" 
-                     Margin="5,0"
-                     Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+         Width="120" 
+         Height="25" 
+         Margin="5,0"
+         Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Button Content="Поиск" 
                     x:Name="Finder" 
@@ -44,11 +44,14 @@
 
         <!-- DataGrid -->
         <DataGrid ItemsSource="{Binding Drivers}" 
-                  AutoGenerateColumns="True"
-                  Grid.Row="1"
-                  SelectedItem="{Binding SelectedDriver, Mode=TwoWay}"
-                  MouseDoubleClick="DataGrid_MouseDoubleClick"
-                  Margin="10"/>
+          AutoGenerateColumns="True"
+                  x:Name="DriversDataGrid"
+          Grid.Row="1"
+          SelectedItem="{Binding SelectedDriver, Mode=TwoWay}"
+          MouseDoubleClick="DataGrid_MouseDoubleClick"
+          Margin="10"
+          CanUserAddRows="False"/>
+       
 
         <!-- Кнопки управления -->
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
@@ -64,6 +67,13 @@
                     Width="70" 
                     Height="25"
                     Click="Delete_Click"/>
+            <Button
+                x:Name="Update"
+                Content="Обновить"
+                 Width="70" 
+                 Height="25"
+                 Margin="10,0,10,0" Click="Update_Click" 
+                />
         </StackPanel>
     </Grid>
 </Window>

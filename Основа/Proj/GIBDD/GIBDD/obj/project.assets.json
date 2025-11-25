@@ -4723,8 +4723,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASD\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -4732,15 +4731,11 @@
       "projectUniqueName": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\Основа\\Proj\\GIBDD\\GIBDD\\GIBDD.csproj",
       "projectName": "GIBDD",
       "projectPath": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\Основа\\Proj\\GIBDD\\GIBDD\\GIBDD.csproj",
-      "packagesPath": "C:\\Users\\ASD\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
       "outputPath": "D:\\VSC\\Uchebnaya2024ZIMA\\Var2ZIMA\\Основа\\Proj\\GIBDD\\GIBDD\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ASD\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4812,7 +4807,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -32,11 +32,19 @@ namespace GIBDD.Views
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             _viewModel.DeleteDriver();
+
+
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             _viewModel.AddDriver();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.LoadDrivers();
+
         }
     }
 }
