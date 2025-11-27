@@ -8,18 +8,21 @@ using System.Threading.Tasks;
 namespace GIBDD.Services
 {
     /// <summary>
-    /// 
+    /// Сервис для аутентификации пользователей
     /// </summary>
     public class AuthService
     {
+        /// <summary>
+        /// Текущий авторизованный пользователь
+        /// </summary>
         public static Adm CurrentUser { get; set; }
 
         /// <summary>
-        /// 
+        /// Выполняет вход пользователя в систему
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="username">Логин пользователя</param>
+        /// <param name="password">Пароль пользователя</param>
+        /// <returns>True, если вход выполнен успешно, иначе False</returns>
         public bool Login(string username, string password)
         {
             var user = new DataService<Adm>().GetAll()

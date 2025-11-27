@@ -9,35 +9,59 @@ using System.Windows;
 
 namespace GIBDD.ViewModels
 {
+    /// <summary>
+    /// ViewModel для управления водителями
+    /// </summary>
     public class DriverViewModel : BaseViewModel
     {
         private DataService<Driver> _driverService = new DataService<Driver>();
         private List<Driver> _allDrivers;
-        private ObservableCollection<Driver> _drivers; // Измени на ObservableCollection
+        private ObservableCollection<Driver> _drivers;
         private Driver _selectedDriver;
         private string _searchText;
         private string _selectedCategory;
 
-        // Команды
+        /// <summary>
+        /// Команда загрузки водителей
+        /// </summary>
         public RelayCommand LoadDriversCommand { get; }
-        public RelayCommand AddDriversCommand { get; }
-        public RelayCommand DeleteDriversCommand { get; }
-        public RelayCommand UpdateCommand { get; } // Добавим команду обновления
 
-        // Коллекция для привязки к DataGrid
-        public ObservableCollection<Driver> Drivers // Измени тип
+        /// <summary>
+        /// Команда добавления водителя
+        /// </summary>
+        public RelayCommand AddDriversCommand { get; }
+
+        /// <summary>
+        /// Команда удаления водителя
+        /// </summary>
+        public RelayCommand DeleteDriversCommand { get; }
+
+        /// <summary>
+        /// Команда обновления списка водителей
+        /// </summary>
+        public RelayCommand UpdateCommand { get; }
+
+        /// <summary>
+        /// Коллекция водителей для привязки к DataGrid
+        /// </summary>
+        public ObservableCollection<Driver> Drivers
         {
             get => _drivers;
             set { _drivers = value; OnPropertyChanged(); }
         }
 
-        // Остальные свойства без изменений...
+        /// <summary>
+        /// Выбранный водитель
+        /// </summary>
         public Driver SelectedDriver
         {
             get => _selectedDriver;
             set { _selectedDriver = value; OnPropertyChanged(); }
         }
 
+        /// <summary>
+        /// Текст для поиска
+        /// </summary>
         public string SearchText
         {
             get => _searchText;
@@ -49,6 +73,9 @@ namespace GIBDD.ViewModels
             }
         }
 
+        /// <summary>
+        /// Выбранная категория для фильтрации
+        /// </summary>
         public string SelectedCategory
         {
             get => _selectedCategory;
@@ -60,6 +87,9 @@ namespace GIBDD.ViewModels
             }
         }
 
+        /// <summary>
+        /// Список всех доступных категорий водительских прав
+        /// </summary>
         public List<string> Categories
         {
             get
@@ -76,27 +106,32 @@ namespace GIBDD.ViewModels
             }
         }
 
+        /// <summary>
+        /// Конструктор DriverViewModel
+        /// </summary>
         public DriverViewModel()
         {
             LoadDriversCommand = new RelayCommand(LoadDrivers);
             AddDriversCommand = new RelayCommand(AddDriver);
             DeleteDriversCommand = new RelayCommand(DeleteDriver);
-            UpdateCommand = new RelayCommand(LoadDrivers); // Команда обновления
+            UpdateCommand = new RelayCommand(LoadDrivers);
 
             LoadDrivers();
         }
 
+        /// <summary>
+        /// Загружает список всех водителей из базы данных
+        /// </summary>
         public void LoadDrivers()
         {
             _allDrivers = _driverService.GetAll();
-
-            // Вместо присваивания создаем новую ObservableCollection
             Drivers = new ObservableCollection<Driver>(_allDrivers);
-
             OnPropertyChanged(nameof(Categories));
         }
 
-        // Фильтрация по категории
+        /// <summary>
+        /// Фильтрует водителей по выбранной категории
+        /// </summary>
         public void FilterByCategory()
         {
             if (_allDrivers == null) return;
@@ -113,11 +148,12 @@ namespace GIBDD.ViewModels
                     .Where(d => d.Categories.Contains(SelectedCategory));
             }
 
-            // Создаем новую коллекцию для обновления DataGrid
             Drivers = new ObservableCollection<Driver>(filteredDrivers);
         }
 
-        // Поиск по тексту
+        /// <summary>
+        /// Выполняет поиск водителей по тексту
+        /// </summary>
         private void SearchDrivers()
         {
             if (_allDrivers == null) return;
@@ -140,6 +176,9 @@ namespace GIBDD.ViewModels
             Drivers = new ObservableCollection<Driver>(searchedDrivers);
         }
 
+        /// <summary>
+        /// Открывает окно добавления нового водителя
+        /// </summary>
         public void AddDriver()
         {
             var addDriver = new AddDriversWindow();
@@ -147,11 +186,14 @@ namespace GIBDD.ViewModels
             {
                 var newDriver = addDriver.NewDriver;
                 _driverService.Add(newDriver);
-                LoadDrivers(); // Теперь это сработает!
+                LoadDrivers();
                 MessageBox.Show("Водитель успешно добавлен!");
             }
         }
 
+        /// <summary>
+        /// Удаляет выбранного водителя
+        /// </summary>
         public void DeleteDriver()
         {
             if (SelectedDriver == null)
@@ -168,11 +210,14 @@ namespace GIBDD.ViewModels
             if (result == MessageBoxResult.Yes)
             {
                 _driverService.Delete(SelectedDriver);
-                LoadDrivers(); // Теперь это сработает!
+                LoadDrivers();
                 MessageBox.Show("Водитель удален!");
             }
         }
 
+        /// <summary>
+        /// Открывает окно просмотра и редактирования водителя
+        /// </summary>
         public void OpenDriverProfile()
         {
             if (SelectedDriver == null)
@@ -186,7 +231,7 @@ namespace GIBDD.ViewModels
             {
                 var updatedDriver = viewWindow.EditedDriver;
                 _driverService.Update(updatedDriver);
-                LoadDrivers(); // Теперь это сработает!
+                LoadDrivers();
                 MessageBox.Show("Данные обновлены!");
             }
         }

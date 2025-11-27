@@ -1,0 +1,46 @@
+<Window x:Class="GIBDD.Views.ViewCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование автомобиля" Height="500" Width="700"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Основная колонка - все данные для редактирования -->
+        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="15">
+                <TextBlock Text="Редактирование автомобиля" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+                <!-- Основные данные -->
+                <GroupBox Header="Основные данные" Margin="0,0,0,10">
+                    <StackPanel Margin="5">
+                        <TextBlock Text="VIN номер:*" FontWeight="Bold"/>
+                        <TextBox Text="{Binding CarVim}" Height="25" IsReadOnly="True" Background="LightGray"/>
+
+                        <TextBlock Text="Модель автомобиля:" FontWeight="Bold" Margin="0,5,0,0"/>
+                        <TextBox Text="{Binding CarModel}" Height="25"/>
+
+                        <TextBlock Text="Год выпуска:" FontWeight="Bold" Margin="0,5,0,0"/>
+                        <TextBox Text="{Binding CarYear}" Height="25" MaxLength="4"/>
+
+                        <TextBlock Text="Вес автомобиля:" FontWeight="Bold" Margin="0,5,0,0"/>
+                        <TextBox Text="{Binding CarWeight}" Height="25" MaxLength="4"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- Кнопки -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <Button Content="Сохранить" Width="100" Margin="5" 
+                            Background="LightGreen" Click="Button_Click" />
+                    <Button Content="Отмена" Width="100" Margin="5" 
+                            Click="Cancel_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
+
