@@ -6,10 +6,20 @@ using GIBDD.Models;
 
 namespace GIBDD.Views
 {
+    /// <summary>
+    /// Окно для просмотра и редактирования водителя
+    /// </summary>
     public partial class ViewDriverWindow : Window
     {
+        /// <summary>
+        /// Отредактированный водитель
+        /// </summary>
         public Driver EditedDriver { get; private set; }
 
+        /// <summary>
+        /// Конструктор окна ViewDriverWindow
+        /// </summary>
+        /// <param name="driver">Водитель для редактирования</param>
         public ViewDriverWindow(Driver driver)
         {
             InitializeComponent();
@@ -44,6 +54,9 @@ namespace GIBDD.Views
             LoadPhoto();
         }
 
+        /// <summary>
+        /// Загружает фотографию водителя
+        /// </summary>
         private void LoadPhoto()
         {
             string photoPath = Path.Combine(Directory.GetCurrentDirectory(), "photo", EditedDriver.Photo);
@@ -54,12 +67,22 @@ namespace GIBDD.Views
             }
         }
  
+        /// <summary>
+        /// Обработчик нажатия кнопки "Отмена"
+        /// </summary>
+        /// <param name="sender">Источник события</param>
+        /// <param name="e">Аргументы события</param>
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
             this.Close();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Сохранить"
+        /// </summary>
+        /// <param name="sender">Источник события</param>
+        /// <param name="e">Аргументы события</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             // Простая проверка обязательных полей
@@ -74,6 +97,11 @@ namespace GIBDD.Views
             this.Close();
         }
 
+        /// <summary>
+        /// Обработчик нажатия кнопки "Выбрать фото"
+        /// </summary>
+        /// <param name="sender">Источник события</param>
+        /// <param name="e">Аргументы события</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();

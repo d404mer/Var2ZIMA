@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\App.xaml
-41845474867
+81857944558
 
-23-554487977
+281743867025
 2281024055352
-MainWindow.xaml;Views\AddDriversWindow.xaml;Views\DriversWindow.xaml;Views\ViewDriverWindow.xaml;
+MainWindow.xaml;Views\AddCarsWindow.xaml;Views\AddDriversWindow.xaml;Views\CarsWindow.xaml;Views\DriversWindow.xaml;Views\MainMenuWindow.xaml;Views\ViewCarWindow.xaml;Views\ViewDriverWindow.xaml;
 
 False
 

@@ -14,16 +14,23 @@ using GIBDD.Views;
 namespace GIBDD
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Окно авторизации пользователя
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Конструктор окна MainWindow
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
         }
 
-       
+        /// <summary>
+        /// Обработчик нажатия кнопки "Войти"
+        /// </summary>
+        /// <param name="sender">Источник события</param>
+        /// <param name="e">Аргументы события</param>
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             string login = LoginBox.Text;
@@ -36,9 +43,9 @@ namespace GIBDD
                 // Успешный вход
                 MessageBox.Show($"Добро пожаловать, {AuthService.CurrentUser.Login}!");
 
-                // Открываем основное рабочее окно
-                var driversWindow = new DriversWindow();
-                driversWindow.Show();
+                // Открываем главное меню
+                var mainMenuWindow = new Views.MainMenuWindow();
+                mainMenuWindow.Show();
 
                 // Закрываем окно авторизации
                 this.Close();

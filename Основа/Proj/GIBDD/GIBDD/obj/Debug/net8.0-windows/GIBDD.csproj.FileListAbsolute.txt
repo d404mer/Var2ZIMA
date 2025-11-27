@@ -151,3 +151,11 @@ D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0
 D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\AddDriversWindow.baml
 D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\ViewDriverWindow.g.cs
 D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\ViewDriverWindow.baml
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\CarsWindow.baml
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\MainMenuWindow.baml
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\ViewCarWindow.baml
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\AddCarsWindow.g.cs
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\CarsWindow.g.cs
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\MainMenuWindow.g.cs
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\ViewCarWindow.g.cs
+D:\VSC\Uchebnaya2024ZIMA\Var2ZIMA\Основа\Proj\GIBDD\GIBDD\obj\Debug\net8.0-windows\Views\AddCarsWindow.baml

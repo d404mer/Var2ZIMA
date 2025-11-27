@@ -4,18 +4,28 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GIBDD.Models;
 
+/// <summary>
+/// Контекст базы данных Entity Framework для работы с данными ГИБДД
+/// </summary>
 public partial class GibddDbContext : DbContext
 {
+    /// <summary>
+    /// Конструктор по умолчанию
+    /// </summary>
     public GibddDbContext()
     {
     }
 
+    /// <summary>
+    /// Конструктор с параметрами опций
+    /// </summary>
+    /// <param name="options">Опции конфигурации контекста базы данных</param>
     public GibddDbContext(DbContextOptions<GibddDbContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<Accident> Accidents { get; set; }
+    public virtual DbSet<Accident> Accidents { get; set; } 
 
     public virtual DbSet<AccidentParticipant> AccidentParticipants { get; set; }
 

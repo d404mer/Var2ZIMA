@@ -5,7 +5,7 @@ using System.Windows;
 namespace GIBDD
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Главный класс приложения WPF
     /// </summary>
     public partial class App : Application
     {
