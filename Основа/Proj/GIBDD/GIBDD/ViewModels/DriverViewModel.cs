@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel; // Добавь это
 using System.Linq;
 using System.Windows;
+using System.Diagnostics;
 
 namespace GIBDD.ViewModels
 {
@@ -111,6 +112,9 @@ namespace GIBDD.ViewModels
         /// </summary>
         public DriverViewModel()
         {
+            // Инициализируем коллекцию один раз
+            _drivers = new ObservableCollection<Driver>();
+            
             LoadDriversCommand = new RelayCommand(LoadDrivers);
             AddDriversCommand = new RelayCommand(AddDriver);
             DeleteDriversCommand = new RelayCommand(DeleteDriver);
@@ -124,9 +128,74 @@ namespace GIBDD.ViewModels
         /// </summary>
         public void LoadDrivers()
         {
-            _allDrivers = _driverService.GetAll();
-            Drivers = new ObservableCollection<Driver>(_allDrivers);
-            OnPropertyChanged(nameof(Categories));
+            Debug.WriteLine("[DriverViewModel] LoadDrivers called");
+            try
+            {
+                _allDrivers = _driverService.GetAll();
+                Debug.WriteLine($"[DriverViewModel] Loaded {_allDrivers.Count} drivers from DB");
+                
+                // Применяем текущие фильтры после загрузки
+                ApplyFilters();
+                
+                OnPropertyChanged(nameof(Categories));
+                Debug.WriteLine($"[DriverViewModel] LoadDrivers completed. Drivers collection count = {Drivers?.Count ?? 0}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[DriverViewModel] LoadDrivers exception: {ex}");
+                MessageBox.Show("Ошибка при загрузке списка водителей. Подробности смотрите в Debug Output.");
+            }
+        }
+
+        /// <summary>
+        /// Применяет все активные фильтры (поиск и категория) к загруженным данным
+        /// </summary>
+        private void ApplyFilters()
+        {
+            Debug.WriteLine($"[DriverViewModel] ApplyFilters called. SearchText='{SearchText}', SelectedCategory='{SelectedCategory}'");
+            
+            if (_allDrivers == null)
+            {
+                Debug.WriteLine("[DriverViewModel] ApplyFilters: _allDrivers is null, clearing collection");
+                _drivers.Clear();
+                return;
+            }
+
+            IEnumerable<Driver> filtered = _allDrivers;
+
+            // Применяем фильтр по категории
+            if (!string.IsNullOrEmpty(SelectedCategory) && SelectedCategory != "Все категории")
+            {
+                filtered = filtered.Where(d => d.Categories != null && d.Categories.Contains(SelectedCategory));
+                Debug.WriteLine($"[DriverViewModel] Applied category filter '{SelectedCategory}'. Count after category filter: {filtered.Count()}");
+            }
+
+            // Применяем поиск
+            if (!string.IsNullOrEmpty(SearchText))
+            {
+                filtered = filtered.Where(d => 
+                    (d.Surname != null && d.Surname.Contains(SearchText, StringComparison.OrdinalIgnoreCase)) ||
+                    (d.Name != null && d.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase)) ||
+                    (d.Phone != null && d.Phone.Contains(SearchText)) ||
+                    (d.LicenceNumber != null && d.LicenceNumber.Contains(SearchText)));
+                Debug.WriteLine($"[DriverViewModel] Applied search filter '{SearchText}'. Count after search filter: {filtered.Count()}");
+            }
+
+            // Обновляем существующую коллекцию вместо создания новой
+            var filteredList = filtered.ToList();
+            Debug.WriteLine($"[DriverViewModel] Final filtered count: {filteredList.Count}");
+            
+            // Очищаем и заполняем существующую коллекцию
+            _drivers.Clear();
+            foreach (var driver in filteredList)
+            {
+                _drivers.Add(driver);
+            }
+            
+            // Явно уведомляем об изменении коллекции
+            OnPropertyChanged(nameof(Drivers));
+            
+            Debug.WriteLine($"[DriverViewModel] ApplyFilters completed. Drivers collection updated. Count = {_drivers.Count}");
         }
 
         /// <summary>
@@ -134,21 +203,8 @@ namespace GIBDD.ViewModels
         /// </summary>
         public void FilterByCategory()
         {
-            if (_allDrivers == null) return;
-
-            IEnumerable<Driver> filteredDrivers;
-
-            if (string.IsNullOrEmpty(SelectedCategory) || SelectedCategory == "Все категории")
-            {
-                filteredDrivers = _allDrivers;
-            }
-            else
-            {
-                filteredDrivers = _allDrivers
-                    .Where(d => d.Categories.Contains(SelectedCategory));
-            }
-
-            Drivers = new ObservableCollection<Driver>(filteredDrivers);
+            Debug.WriteLine($"[DriverViewModel] FilterByCategory called. SelectedCategory = '{SelectedCategory}'");
+            ApplyFilters();
         }
 
         /// <summary>
@@ -156,24 +212,8 @@ namespace GIBDD.ViewModels
         /// </summary>
         private void SearchDrivers()
         {
-            if (_allDrivers == null) return;
-
-            IEnumerable<Driver> searchedDrivers;
-
-            if (string.IsNullOrEmpty(SearchText))
-            {
-                searchedDrivers = _allDrivers;
-            }
-            else
-            {
-                searchedDrivers = _allDrivers
-                    .Where(d => d.Surname.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                               d.Name.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
-                               d.Phone.Contains(SearchText) ||
-                               d.LicenceNumber.Contains(SearchText));
-            }
-
-            Drivers = new ObservableCollection<Driver>(searchedDrivers);
+            Debug.WriteLine($"[DriverViewModel] SearchDrivers called. SearchText = '{SearchText}'");
+            ApplyFilters();
         }
 
         /// <summary>
@@ -181,13 +221,39 @@ namespace GIBDD.ViewModels
         /// </summary>
         public void AddDriver()
         {
+            Debug.WriteLine("[DriverViewModel] AddDriver called");
             var addDriver = new AddDriversWindow();
             if (addDriver.ShowDialog() == true)
             {
                 var newDriver = addDriver.NewDriver;
-                _driverService.Add(newDriver);
-                LoadDrivers();
-                MessageBox.Show("Водитель успешно добавлен!");
+                Debug.WriteLine($"[DriverViewModel] New driver from dialog: GUID={newDriver?.Guid}, Name={newDriver?.Surname} {newDriver?.Name}");
+                
+                try
+                {
+                    _driverService.Add(newDriver);
+                    Debug.WriteLine("[DriverViewModel] Driver added successfully. Reloading drivers...");
+                    
+                    // Сбрасываем фильтры перед обновлением, чтобы новый водитель был виден
+                    SearchText = string.Empty;
+                    SelectedCategory = "Все категории";
+                    
+                    LoadDrivers();
+                    
+                    // Явно уведомляем об изменении коллекции
+                    OnPropertyChanged(nameof(Drivers));
+                    
+                    Debug.WriteLine($"[DriverViewModel] Drivers collection after add: Count = {Drivers?.Count ?? 0}");
+                    MessageBox.Show("Водитель успешно добавлен!");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[DriverViewModel] Error adding driver: {ex}");
+                    MessageBox.Show($"Ошибка при добавлении водителя: {ex.Message}");
+                }
+            }
+            else
+            {
+                Debug.WriteLine("[DriverViewModel] AddDriversWindow dialog canceled");
             }
         }
 
@@ -198,6 +264,7 @@ namespace GIBDD.ViewModels
         {
             if (SelectedDriver == null)
             {
+                Debug.WriteLine("[DriverViewModel] DeleteDriver called with null SelectedDriver");
                 MessageBox.Show("Выберите водителя для удаления!");
                 return;
             }
@@ -209,9 +276,15 @@ namespace GIBDD.ViewModels
 
             if (result == MessageBoxResult.Yes)
             {
+                Debug.WriteLine($"[DriverViewModel] Deleting driver GUID={SelectedDriver.Guid}, Name={SelectedDriver.Surname} {SelectedDriver.Name}");
                 _driverService.Delete(SelectedDriver);
+                Debug.WriteLine("[DriverViewModel] Reloading drivers after delete");
                 LoadDrivers();
                 MessageBox.Show("Водитель удален!");
+            }
+            else
+            {
+                Debug.WriteLine("[DriverViewModel] Delete cancelled by user");
             }
         }
 
@@ -222,17 +295,40 @@ namespace GIBDD.ViewModels
         {
             if (SelectedDriver == null)
             {
+                Debug.WriteLine("[DriverViewModel] OpenDriverProfile called with null SelectedDriver");
                 MessageBox.Show("Выберите водителя!");
                 return;
             }
 
+            Debug.WriteLine($"[DriverViewModel] Opening ViewDriverWindow for GUID={SelectedDriver.Guid}, Name={SelectedDriver.Surname} {SelectedDriver.Name}");
             var viewWindow = new ViewDriverWindow(SelectedDriver);
             if (viewWindow.ShowDialog() == true)
             {
                 var updatedDriver = viewWindow.EditedDriver;
-                _driverService.Update(updatedDriver);
-                LoadDrivers();
-                MessageBox.Show("Данные обновлены!");
+                Debug.WriteLine($"[DriverViewModel] Updating driver GUID={updatedDriver?.Guid}, Name={updatedDriver?.Surname} {updatedDriver?.Name}");
+                
+                try
+                {
+                    _driverService.Update(updatedDriver);
+                    Debug.WriteLine("[DriverViewModel] Driver updated successfully. Reloading drivers...");
+                    
+                    LoadDrivers();
+                    
+                    // Явно уведомляем об изменении коллекции
+                    OnPropertyChanged(nameof(Drivers));
+                    
+                    Debug.WriteLine($"[DriverViewModel] Drivers collection after update: Count = {Drivers?.Count ?? 0}");
+                    MessageBox.Show("Данные обновлены!");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[DriverViewModel] Error updating driver: {ex}");
+                    MessageBox.Show($"Ошибка при обновлении водителя: {ex.Message}");
+                }
+            }
+            else
+            {
+                Debug.WriteLine("[DriverViewModel] ViewDriverWindow dialog canceled");
             }
         }
     }

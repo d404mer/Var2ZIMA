@@ -26,12 +26,7 @@
          Margin="5,0"
          Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <Button Content="Поиск" 
-                    x:Name="Finder" 
-                    Width="60" 
-                    Height="25" 
-                    Margin="5,0"
-                    Command="{Binding SearchDriversCommand}"/>
+            <!-- Поиск работает автоматически через UpdateSourceTrigger=PropertyChanged в TextBox -->
         </StackPanel>
 
         <Button x:Name="Back" 

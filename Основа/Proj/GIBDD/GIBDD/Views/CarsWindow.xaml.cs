@@ -1,6 +1,7 @@
 using GIBDD.ViewModels;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Data;
 
 namespace GIBDD.Views
 {
@@ -28,6 +29,7 @@ namespace GIBDD.Views
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             _viewModel.OpenCarProfile();
+            RefreshDataGrid();
         }
 
         /// <summary>
@@ -54,6 +56,7 @@ namespace GIBDD.Views
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             _viewModel.AddCar();
+            RefreshDataGrid();
         }
 
         /// <summary>
@@ -62,6 +65,20 @@ namespace GIBDD.Views
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             _viewModel.LoadCars();
+            RefreshDataGrid();
+        }
+
+        /// <summary>
+        /// Принудительно обновляет привязку DataGrid
+        /// </summary>
+        private void RefreshDataGrid()
+        {
+            // Обновляем привязку ItemsSource
+            var binding = BindingOperations.GetBindingExpression(CarsDataGrid, System.Windows.Controls.DataGrid.ItemsSourceProperty);
+            binding?.UpdateTarget();
+            
+            // Также обновляем саму коллекцию через привязку
+            CarsDataGrid.Items.Refresh();
         }
     }
 }

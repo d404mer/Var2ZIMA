@@ -6,6 +6,19 @@ namespace GIBDD.ViewModels
 {
     /// <summary>
     /// Базовый класс для всех ViewModel, реализующий INotifyPropertyChanged
+    /// 
+    /// НАЗНАЧЕНИЕ: Избегаем дублирования кода в каждой ViewModel
+    /// 
+    /// ИСПОЛЬЗОВАНИЕ:
+    /// public class MyViewModel : BaseViewModel
+    /// {
+    ///     private string _name;
+    ///     public string Name
+    ///     {
+    ///         get => _name;
+    ///         set { _name = value; OnPropertyChanged(); } // Автоматически обновляет UI
+    ///     }
+    /// }
     /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
@@ -20,7 +33,12 @@ namespace GIBDD.ViewModels
         /// <param name="name">Имя измененного свойства</param>
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            try
+            {
+
+                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            }
+            catch { }
         }
 
         /// <summary>

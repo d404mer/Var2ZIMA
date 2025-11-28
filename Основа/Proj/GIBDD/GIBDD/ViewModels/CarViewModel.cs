@@ -77,6 +77,9 @@ namespace GIBDD.ViewModels
         /// </summary>
         public CarViewModel()
         {
+            // Инициализируем коллекцию один раз
+            _cars = new ObservableCollection<Car>();
+            
             LoadCarsCommand = new RelayCommand(LoadCars);
             AddCarsCommand = new RelayCommand(AddCar);
             DeleteCarsCommand = new RelayCommand(DeleteCar);
@@ -90,8 +93,48 @@ namespace GIBDD.ViewModels
         /// </summary>
         public void LoadCars()
         {
-            _allCars = _carService.GetAll();
-            Cars = new ObservableCollection<Car>(_allCars);
+            try
+            {
+                _allCars = _carService.GetAll();
+                ApplyFilters();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при загрузке списка автомобилей: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Применяет все активные фильтры (поиск) к загруженным данным
+        /// </summary>
+        private void ApplyFilters()
+        {
+            if (_allCars == null)
+            {
+                _cars.Clear();
+                return;
+            }
+
+            IEnumerable<Car> filtered = _allCars;
+
+            // Применяем поиск
+            if (!string.IsNullOrEmpty(SearchText))
+            {
+                filtered = filtered.Where(c => 
+                    (c.CarVim != null && c.CarVim.Contains(SearchText, StringComparison.OrdinalIgnoreCase)) ||
+                    (c.CarModel != null && c.CarModel.Contains(SearchText, StringComparison.OrdinalIgnoreCase)) ||
+                    (c.CarYear != null && c.CarYear.Contains(SearchText)));
+            }
+
+            // Обновляем существующую коллекцию вместо создания новой
+            var filteredList = filtered.ToList();
+            _cars.Clear();
+            foreach (var car in filteredList)
+            {
+                _cars.Add(car);
+            }
+            
+            OnPropertyChanged(nameof(Cars));
         }
 
         /// <summary>
@@ -99,23 +142,7 @@ namespace GIBDD.ViewModels
         /// </summary>
         private void SearchCars()
         {
-            if (_allCars == null) return;
-
-            IEnumerable<Car> searchedCars;
-
-            if (string.IsNullOrEmpty(SearchText))
-            {
-                searchedCars = _allCars;
-            }
-            else
-            {
-                searchedCars = _allCars
-                    .Where(c => (c.CarVim?.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                               (c.CarModel?.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                               (c.CarYear?.Contains(SearchText) ?? false));
-            }
-
-            Cars = new ObservableCollection<Car>(searchedCars);
+            ApplyFilters();
         }
 
         /// <summary>
@@ -127,9 +154,24 @@ namespace GIBDD.ViewModels
             if (addCar.ShowDialog() == true)
             {
                 var newCar = addCar.NewCar;
-                _carService.Add(newCar);
-                LoadCars();
-                MessageBox.Show("Автомобиль успешно добавлен!");
+                try
+                {
+                    _carService.Add(newCar);
+                    
+                    // Сбрасываем фильтры перед обновлением, чтобы новый автомобиль был виден
+                    SearchText = string.Empty;
+                    
+                    LoadCars();
+                    
+                    // Явно уведомляем об изменении коллекции
+                    OnPropertyChanged(nameof(Cars));
+                    
+                    MessageBox.Show("Автомобиль успешно добавлен!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при добавлении автомобиля: {ex.Message}");
+                }
             }
         }
 
@@ -151,9 +193,17 @@ namespace GIBDD.ViewModels
 
             if (result == MessageBoxResult.Yes)
             {
-                _carService.Delete(SelectedCar);
-                LoadCars();
-                MessageBox.Show("Автомобиль удален!");
+                try
+                {
+                    _carService.Delete(SelectedCar);
+                    LoadCars();
+                    OnPropertyChanged(nameof(Cars));
+                    MessageBox.Show("Автомобиль удален!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении автомобиля: {ex.Message}");
+                }
             }
         }
 
@@ -172,9 +222,17 @@ namespace GIBDD.ViewModels
             if (viewWindow.ShowDialog() == true)
             {
                 var updatedCar = viewWindow.EditedCar;
-                _carService.Update(updatedCar);
-                LoadCars();
-                MessageBox.Show("Данные обновлены!");
+                try
+                {
+                    _carService.Update(updatedCar);
+                    LoadCars();
+                    OnPropertyChanged(nameof(Cars));
+                    MessageBox.Show("Данные обновлены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при обновлении автомобиля: {ex.Message}");
+                }
             }
         }
     }
